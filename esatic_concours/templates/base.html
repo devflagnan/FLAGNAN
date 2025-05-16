@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+{% load static tailwind_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titre %}ESATIC CONCOURS{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% tailwind_css %}
+
+    <!-- Icône navigateur -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Barre de navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">ESATIC CONCOURS</h1>
+            <nav class="space-x-4">
+                <a href="/" class="text-sm hover:underline">Accueil</a>
+                <a href="/inscription/" class="text-sm hover:underline">Inscription</a>
+                <a href="/admin/" class="text-sm hover:underline">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="py-10 px-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="bg-white dark:bg-gray-800 py-6 text-center text-sm text-gray-500 dark:text-gray-400 border-t">
+        &copy; {{ now|date:"Y" }} ESATIC. Tous droits réservés.
+    </footer>
+
+</body>
+</html>
